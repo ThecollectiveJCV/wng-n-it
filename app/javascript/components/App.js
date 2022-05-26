@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from '../components/components/Header'
 
 class App extends Component {
   render() {
@@ -16,7 +17,11 @@ class App extends Component {
     console.log("sign_out_route:", sign_out_route)
     return(
       <>
-        <h1>React in Rails with Devise</h1>
+        <Header 
+        logged_in = {logged_in}
+        current_user = {current_user}
+        />
+        <h1>Wng-N-It</h1>
       </>
     )
   }
