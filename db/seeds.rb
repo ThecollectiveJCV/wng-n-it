@@ -1,12 +1,12 @@
 require 'faker'
 
-    50.times do 
+    10.times do 
 
         restaurant=Restaurant.create(
             name: Faker::Restaurant.name, 
             zip: Faker::Address.zip, 
             img: Faker::LoremPixel.image(size: "50x60"), 
-            avg_rating: rand(1..5)
+            avg_rating: rand(1..5).to_f
             )
         restaurant.save!
     end
@@ -41,7 +41,7 @@ Restaurant.all.each do |restaurant|
                 restaurant_id: restaurant.id,
                 restaurant_name: restaurant.name,
                 text_review: Faker::Restaurant.review,
-                img: Faker::LoremPixel.image(size: "50x60"), 
+                img: Faker::LoremFlickr.image(search_terms: ['chicken wings']), 
                 rating: rand(1..5)
     )
     puts "creating review #{restaurant}"
