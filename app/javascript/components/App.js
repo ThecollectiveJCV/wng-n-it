@@ -19,6 +19,16 @@ class App extends Component {
       restaurants: [],
     };
   }
+  componentDidMount(){
+    this.readReview();
+  }
+  
+  readReview = () => {
+    fetch("/reviews")
+    .then(response => response.json())
+    .then(reviewsArray => this.setState({reviews: reviewsArray}))
+    .catch(errors => console.log("Review read errors:", errors))
+  }
 
   render() {
     const {
