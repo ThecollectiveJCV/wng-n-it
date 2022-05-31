@@ -5,7 +5,7 @@ require 'faker'
         restaurant=Restaurant.create(
             name: Faker::Restaurant.name, 
             zip: Faker::Address.zip, 
-            img: Faker::LoremPixel.image(size: "50x60"), 
+            img: Faker::LoremFlickr.image(search_terms: ['chicken wings']), 
             avg_rating: rand(1..5).to_f
             )
         restaurant.save!
