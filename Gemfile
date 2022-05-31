@@ -75,3 +75,5 @@ gem "devise", "~> 4.8"
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem "rspec-rails", "~> 5.1"
+
+gem 'httparty', '0.20.0'
