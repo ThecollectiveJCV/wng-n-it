@@ -17,12 +17,22 @@ class App extends Component {
     super(props);
     this.state = {
       restaurants: [],
+      reviews: [],
     };
   }
   componentDidMount(){
     this.readReview();
+    this.readRestaurant();
   }
+
   
+  readRestaurant = () => {
+    fetch("/restaurants")
+    .then(response => response.json())
+    .then(restaurantsArray => this.setState({restaurants: restaurantsArray}))
+    .catch(errors => console.log("Review read errors:", errors))
+  }
+
   readReview = () => {
     fetch("/reviews")
     .then(response => response.json())

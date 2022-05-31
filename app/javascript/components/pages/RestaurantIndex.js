@@ -3,6 +3,11 @@ import { NavLink } from "react-router-dom";
 import { Card, CardTitle, Col, Button } from "reactstrap";
 
 export default class RestaurantIndex extends Component {
+
+
+
+
+
   render() {
     let {restaurants} = this.props
     return (
