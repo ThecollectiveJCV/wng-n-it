@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, CardGroup, Col, Card, CardTitle, CardBody, CardImg, CardText, Row } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
 
 class ReviewIndex extends Component {
     render() {
@@ -8,7 +9,8 @@ class ReviewIndex extends Component {
         <Container>
             <CardGroup>
                 
-                   
+                    <button><NavLink to="/restaurantindex">Restaurants</NavLink></button>
+                    <button><NavLink to="/reviewindex">Wng Feed</NavLink></button>
                     <Row sm="8" md="6" xl="3" className='reviewContainer'>
                         {reviews && reviews.map(review => {
                             return (

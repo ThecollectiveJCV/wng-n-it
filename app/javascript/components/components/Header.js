@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Nav, NavItem } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 
+
 export default class Header extends Component {
   render() {
     const {
@@ -12,26 +13,28 @@ export default class Header extends Component {
     console.log("current_user:", current_user)
     return(
       <>
-        <h1>React in Rails with Devise</h1>
-        <Nav>
-            <NavItem>
-              <NavLink to="/" className="nav-link">Home</NavLink>
+        <h1>Why Stress When You Can Wng It?</h1>
+        <Nav className="nav">
+            <NavItem className="navitem">
+              <NavLink to="/" className="nav-link">
+                <img className="logo-home-button" src={require('../assets/logo-favicon-headernav.png')}/>
+              </NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className="navitem">
               <NavLink to="/reviewindex" className="nav-link">Wng Feed</NavLink>
             </NavItem>
           {logged_in &&
-            <NavItem>
+            <NavItem className="navitem">
               <a href='/users/sign_out' className="nav-link">Sign Out</a>
             </NavItem>
           }
           {!logged_in &&
-            <NavItem>
+            <NavItem className="navitem">
               <a href='/users/sign_in' className="nav-link">Sign In</a>
             </NavItem>
           }
           {!logged_in &&
-            <NavItem>
+            <NavItem className="navitem">
               <a href='/users/sign_up' className="nav-link">Sign Up</a>
             </NavItem>
           }
