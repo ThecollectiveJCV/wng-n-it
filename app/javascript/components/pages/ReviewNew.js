@@ -5,9 +5,10 @@ export default class ReviewNew extends Component {
     super(props)
     this.state = {
       newReview: {
+
         text_review: "",
         user_id: this.props.current_user.id,
-        restaurant_id: this.props
+        restaurant_id: this.props.restaurant_id
       }
     }
   }
@@ -25,7 +26,7 @@ export default class ReviewNew extends Component {
   }
   
   render() {
-    console.log(this.state.newReview.restaurant_id)
+    console.log(this.props.restaurant_id)
     return (
 
       <div>

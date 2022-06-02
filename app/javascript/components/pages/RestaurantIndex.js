@@ -6,9 +6,14 @@ import SecondaryHeader from '../components/SecondaryHeader'
 
 export default class RestaurantIndex extends Component {
 
-
+  // restaurantReview = (e) => {
+    
+  //   let target = e.target.value
+  //   console.log(target)
+  // }
   render() {
     let {restaurants} = this.props
+    // console.log("**",restaurants)
     return (
       <>
       <SecondaryHeader />
@@ -28,13 +33,7 @@ export default class RestaurantIndex extends Component {
                           View restaurant{" "}
                         </NavLink>
                       </Button>
-                      <Button >
-                        <NavLink 
-                        key={'/reviewnew'}
-                        to="/reviewnew"
-                        restaurant=
-                        {{restaurant: restaurant.id}}>Add Review</NavLink>
-                      </Button>
+                     
                     </CardTitle>
                   </Card>
                 );

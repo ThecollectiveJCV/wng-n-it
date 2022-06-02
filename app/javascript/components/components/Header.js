@@ -9,8 +9,8 @@ export default class Header extends Component {
       logged_in,
       current_user
     } = this.props
-    console.log("logged_in:", logged_in)
-    console.log("current_user:", current_user)
+    // console.log("logged_in:", logged_in)
+    // console.log("current_user:", current_user)
     return(
       <>
         <h1>Why Stress When You Can Wng It?</h1>
