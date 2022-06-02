@@ -16,9 +16,12 @@ export default class Header extends Component {
         <h1>Why Stress When You Can Wng It?</h1>
         <Nav className="nav">
             <NavItem className="navitem">
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/reviewindex" className="nav-link">
                 <img className="logo-home-button" src={require('../assets/logo-favicon-headernav.png')}/>
               </NavLink>
+            </NavItem>
+            <NavItem className="navitem">
+              <NavLink to="/aboutus" className="nav-link">About Wng-N-It</NavLink>
             </NavItem>
             <NavItem className="navitem">
               <NavLink to="/reviewindex" className="nav-link">Wng Feed</NavLink>

@@ -7,9 +7,6 @@ import SecondaryHeader from '../components/SecondaryHeader'
 export default class RestaurantIndex extends Component {
 
 
-
-
-
   render() {
     let {restaurants} = this.props
     return (
@@ -30,6 +27,13 @@ export default class RestaurantIndex extends Component {
                         <NavLink to={`/restaurantshow/${restaurant.id}`}>
                           View restaurant{" "}
                         </NavLink>
+                      </Button>
+                      <Button >
+                        <NavLink 
+                        key={'/reviewnew'}
+                        to="/reviewnew"
+                        restaurant=
+                        {{restaurant: restaurant.id}}>Add Review</NavLink>
                       </Button>
                     </CardTitle>
                   </Card>
