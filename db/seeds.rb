@@ -6,7 +6,7 @@ require "HTTParty"
 response = HTTParty.get("https://api.yelp.com/v3/businesses/search?&term=chicken_wings&location=san+diego",
     
     :headers => { "Authorization" => Rails.application.credentials.yelp.api})
-    # INCORRECT SYNTAX TO CALL ON API KEY
+    
 
 
 
@@ -18,7 +18,7 @@ parsed_response['businesses'].each do |restaurants|
         zip: restaurants['location']['zip_code'], 
         img: restaurants['image_url'], 
         avg_rating: restaurants['rating']
-        # avg_rating: rand(1.0..5.0).round(2)
+        
         )
     restaurant.save!
 end

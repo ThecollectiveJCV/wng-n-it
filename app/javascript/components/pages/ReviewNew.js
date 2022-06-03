@@ -15,7 +15,6 @@ export default class ReviewNew extends Component {
   }
 
   handleChange = (e) => {
-    console.log(e.target);
     const { newReview } = this.state;
     newReview[e.target.name] = e.target.value;
     this.setState({ newReview: newReview });
@@ -31,7 +30,6 @@ export default class ReviewNew extends Component {
       <div>
         <h1>ReviewNew</h1>
         <Form>
-          {/* <fieldset> */}
           <Label>
             <h3>Restaurant Review</h3>
             <input
@@ -40,7 +38,6 @@ export default class ReviewNew extends Component {
               onChange={this.handleChange}
             />
           </Label>
-          {/* </fieldset> */}
           <button onClick={this.handleSubmit} type="submit">
             Submit Review
           </button>

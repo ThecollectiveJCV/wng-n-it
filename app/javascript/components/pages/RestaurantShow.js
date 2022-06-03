@@ -13,7 +13,6 @@ export default class RestaurantShow extends Component {
   render() {
 
     let {restaurant} = this.props
-    // console.log(restaurant)
     return (
       <div>
         <h1>RestaurantShow</h1>
