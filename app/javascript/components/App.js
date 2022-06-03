@@ -18,49 +18,47 @@ class App extends Component {
     this.state = {
       restaurants: [],
       reviews: [],
-      restaurant_id: undefined
+      restaurant_id: undefined,
     };
   }
-  componentDidMount(){
+  componentDidMount() {
     this.readReview();
     this.readRestaurant();
   }
 
-  
   readRestaurant = () => {
     fetch("/restaurants")
-    .then(response => response.json())
-    .then(restaurantsArray => this.setState({restaurants: restaurantsArray}))
-    .catch(errors => console.log("Review read errors:", errors))
-  }
+      .then((response) => response.json())
+      .then((restaurantsArray) =>
+        this.setState({ restaurants: restaurantsArray })
+      )
+      .catch((errors) => console.log("Review read errors:", errors));
+  };
 
   readReview = () => {
     fetch("/reviews")
-    .then(response => response.json())
-    .then(reviewsArray => this.setState({reviews: reviewsArray}))
-    .catch(errors => console.log("Review read errors:", errors))
-  }
+      .then((response) => response.json())
+      .then((reviewsArray) => this.setState({ reviews: reviewsArray }))
+      .catch((errors) => console.log("Review read errors:", errors));
+  };
 
   createReview = (newReview) => {
+    console.log(JSON.stringify(newReview));
     fetch("/reviews", {
       body: JSON.stringify(newReview),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      method: "POST"
+      method: "POST",
     })
-    .then(response => response.json())
-    .then(() => this.readReview())
-    .catch(errors => console.log("Review create errors:", errors))
-  }
-
+      .then((response) => response.json())
+      .catch((errors) => console.log("Review create errors:", errors));
+  };
 
   handleRestaurantId = (restaurantID) => {
-    this.setState({restaurant_id: restaurantID})
-    
-  }
+    this.setState({ restaurant_id: restaurantID });
+  };
   render() {
-    
     const {
       logged_in,
       current_user,
@@ -97,11 +95,26 @@ class App extends Component {
                 let restaurant = this.state.restaurants.find(
                   (restaurantObject) => restaurantObject.id === id
                 );
-                return <RestaurantShow restaurant={restaurant} handleRestaurantId={this.handleRestaurantId} />;
+                return (
+                  <RestaurantShow
+                    restaurant={restaurant}
+                    handleRestaurantId={this.handleRestaurantId}
+                  />
+                );
               }}
             />
-            <Route path="/reviewnew" 
-            render={() => {return <ReviewNew current_user={current_user} restaurant_id={this.state.restaurant_id}  createReview={this.createReview} /> }} />
+            <Route
+              path="/reviewnew"
+              render={() => {
+                return (
+                  <ReviewNew
+                    current_user={current_user}
+                    restaurant_id={this.state.restaurant_id}
+                    createReview={this.createReview}
+                  />
+                );
+              }}
+            />
             <Route path="/reviewedit" component={ReviewEdit} />
             <Route path="/reviewdelete" component={ReviewDelete} />
             <Route component={NotFound} />

@@ -12,5 +12,9 @@ class ReviewsController < ApplicationController
             render json: review.errors, status: 422
         end
     end
+    private 
+    def review_params 
+        params.require(:review).permit(:restaurant_name, :img, :text_review, :rating, :user_id, :restaurant_id)
+    end 
 
 end
