@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_184502) do
     t.string "name"
     t.string "img"
     t.integer "zip"
-    t.integer "avg_rating"
+    t.float "avg_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

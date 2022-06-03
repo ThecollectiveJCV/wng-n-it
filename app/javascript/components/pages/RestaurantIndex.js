@@ -1,27 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Card, CardTitle, Col, Button } from "reactstrap";
+import SecondaryHeader from "../components/SecondaryHeader";
 
 export default class RestaurantIndex extends Component {
-
-
-
-
-
   render() {
-    let {restaurants} = this.props
+    let { restaurants } = this.props;
     return (
-      <div className='ContainerRestaurant'>RestaurantIndex
-      <Col sm="6">
+      <>
+        <SecondaryHeader />
+        <div className="ContainerRestaurant">
+          The Wngiest Restaurants Around
+          <Col sm="6">
             {restaurants &&
               restaurants.map((restaurant) => {
                 return (
                   <Card body key={restaurant.id}>
                     <CardTitle style={{ textAlign: "center" }}>
-                      <img src={restaurant.img}  />
-                      <h4>Name: {restaurant.name}</h4>
-                      <h4>City: {restaurant.zip}</h4>
-                      <h4>Rating: {restaurant.avg_rating}</h4>
+                      <h4>{restaurant.name}</h4>
+                      <img src={restaurant.img} />
+                      <h4>Average Rating: {restaurant.avg_rating}</h4>
                       <br />
                       <Button className="restaurantshow-btn">
                         <NavLink to={`/restaurantshow/${restaurant.id}`}>
@@ -33,12 +31,8 @@ export default class RestaurantIndex extends Component {
                 );
               })}
           </Col>
-
         </div>
-    
+      </>
     );
   }
-
 }
-
-

@@ -1,38 +1,29 @@
 require 'faker'
 
-    10.times do 
-
-        restaurant=Restaurant.create(
-            name: Faker::Restaurant.name, 
-            zip: Faker::Address.zip, 
-            img: Faker::LoremFlickr.image(search_terms: ['chicken wings']), 
-            avg_rating: rand(1..5).to_f
-            )
-        restaurant.save!
-    end
-# 50.times do
-#     user=User.new(
-#       name: Faker::Internet.user_name,
-#       email: Faker::Internet.email,
-#       password: Faker::Internet.password
-#     )
-#     user.save!
-#   end
-user = User.where(email: 'test@test.test').first_or_create(password: '12345678', password_confirmation: '12345678')
+require "HTTParty"
 
 
-
+response = HTTParty.get("https://api.yelp.com/v3/businesses/search?&term=chicken_wings&location=san+diego",
     
-    # 50.times do |id|
-        # review=Review.create(
-        #         user_id: 1,
-        #         restaurant_id: 1,
-        #         text_review: Faker::Restaurant.review,
-        #         img: Faker::LoremPixel.image(size: "50x60"), 
-        #         rating: rand(1..5)
-        #         )
-        # review.save!
-  
+    :headers => { "Authorization" => Rails.application.credentials.yelp.api})
+    
+
+
+
+parsed_response = JSON.parse(response&.body || "{}")
+    
+parsed_response['businesses'].each do |restaurants|
+    restaurant=Restaurant.new(
+        name: restaurants['name'], 
+        zip: restaurants['location']['zip_code'], 
+        img: restaurants['image_url'], 
+        avg_rating: restaurants['rating']
+        
+        )
+    restaurant.save!
+end
+
+user = User.where(email: 'test@test.test').first_or_create(password: '12345678', password_confirmation: '12345678')
 
 
 Restaurant.all.each do |restaurant|
@@ -41,14 +32,8 @@ Restaurant.all.each do |restaurant|
                 restaurant_id: restaurant.id,
                 restaurant_name: restaurant.name,
                 text_review: Faker::Restaurant.review,
-                img: Faker::LoremFlickr.image(search_terms: ['chicken wings']), 
-                rating: rand(1..5)
+                img: restaurant.img, 
+                rating: restaurant.avg_rating
     )
     puts "creating review #{restaurant}"
 end
-
-# review.each do |each_review|
-#     Restaurant.reviews.create each_review
-#     puts "creating review #{each_review}"
-# end
-
