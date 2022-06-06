@@ -18,12 +18,16 @@ export default class AboutUs extends Component {
 
         <img className="aboutusphotos" src={require('../assets/vicente.png')}/>
         <br />
-        <h3>Vicente</h3>
+        <h3>Vicente Saldana - Product and Project Manager</h3>
         <br />
 
         <img className="aboutusphotos" src={require('../assets/jose.png')}/>
         <br />
-        <h3>Jose</h3>
+        <h3>Jose Aguilar - Design Lead</h3>
+        <br />
+        <img className="aboutusphotos" src={require('../assets/b1.jpg')}/>
+        <br />
+        <h3>Cj Priedel - Tech Lead</h3>
         <br />
 
       </div>

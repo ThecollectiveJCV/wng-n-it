@@ -13,10 +13,10 @@ export default class Header extends Component {
     return(
       <>
         <h1>Why Stress When You Can Wng It?</h1>
-        <Nav className="nav">
-            <NavItem className="navitem">
+        <Nav class="nav">
+            <NavItem class="navitem">
               <NavLink to="/reviewindex" className="nav-link">
-                <img className="logo-home-button" src={require('../assets/logo-favicon-headernav.png')}/>
+                <img class="logo-home-button" src={require('../assets/logo-favicon-headernav.png')}/>
               </NavLink>
             </NavItem>
             <NavItem className="navitem">

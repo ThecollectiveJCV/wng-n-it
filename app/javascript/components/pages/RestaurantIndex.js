@@ -15,7 +15,7 @@ export default class RestaurantIndex extends Component {
             {restaurants &&
               restaurants.map((restaurant) => {
                 return (
-                  <div className="reviewcard" body key={restaurant.id}>
+                  <div class="reviewcard" body key={restaurant.id}>
                     <div class="reviewtitle" style={{ textAlign: "center" }}>
                       <h4>{restaurant.name}</h4>
                       <img src={restaurant.img} />
