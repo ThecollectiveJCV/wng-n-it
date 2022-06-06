@@ -4,7 +4,13 @@ import { NavLink } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
-    const { logged_in, current_user } = this.props;
+    const {
+      logged_in,
+      current_user,
+      new_user_route,
+      sign_in_route,
+      sign_out_route,
+    } = this.props;
 
     return (
       <>
@@ -30,14 +36,14 @@ export default class Header extends Component {
           </NavItem>
           {logged_in && (
             <NavItem className="navitem">
-              <a href="/users/sign_out" className="nav-link">
+              <a href={sign_out_route} className="nav-link">
                 Sign Out
               </a>
             </NavItem>
           )}
           {!logged_in && (
             <NavItem className="navitem">
-              <a href="/users/sign_in" className="nav-link">
+              <a href={sign_in_route} className="nav-link">
                 Sign In
               </a>
             </NavItem>

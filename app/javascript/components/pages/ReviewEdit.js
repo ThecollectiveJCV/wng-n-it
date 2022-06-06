@@ -10,7 +10,7 @@ import { Redirect } from "react-router-dom";
 export default class ReviewEdit extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
+  
     this.state = {
       newReview: {
         text_review: "",
@@ -35,7 +35,7 @@ handleSubmit = () => {
 
 
   render() {
-  console.log(this.props)
+  
     return (
       
       <div>

@@ -46,7 +46,7 @@ class ReviewIndex extends Component {
                       </CardTitle>
                       <CardText tag="h5">{review.text_review}</CardText>
                       <Button>
-                        <NavLink to={(`/reviewshow/${review.id}`)}>
+                        <NavLink to={`/reviewshow/${review.id}`}>
                           View review{" "}
                         </NavLink>
                       </Button>

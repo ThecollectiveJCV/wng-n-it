@@ -57,7 +57,7 @@ class App extends Component {
   };
 
   updateReview = (review, id) => {
-    console.log(review)
+    
     fetch(`/reviews/${id}`, {
     body: JSON.stringify(review),
     headers: {
@@ -152,7 +152,7 @@ class App extends Component {
             <Route path="/reviewedit/:id" render={(props) => {
             let id = props.match.params.id
             let review = this.state.reviews.find(review => review.id === +id)
-            console.log(this.state.reviews)
+           
            
             return <ReviewEdit 
                 current_user={current_user}
