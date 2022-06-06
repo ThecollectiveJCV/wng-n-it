@@ -1,5 +1,16 @@
-<h2>Log in</h2>
+<div class='loginbody'>
+<%= video_tag "../assets/short-clip-wing-drop.mp4", autoplay: :autoplay, loop: :loop mute: :mute, class='landingvideo' %>
+<div class="title">
+  <h1>Welcome to Wng-N-It</h1>
+</div>
+<img src="/assets/logo-favicon-headernav.png" />
+<div class="title2">
+  <br />
+    <h2>Log in</h2>
+  <br />
+</div>
 
+<div class="loginfields">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -18,11 +29,16 @@
     </div>
   <% end %>
 
+<div class="loginfieldbuttons">
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
-  <%= link_to "Wng Feed", "/reviewindex" %>
-  
+</div>
+<div class="wngfeedloginbutton">
+  <%= button_to "Wng Feed", "/reviewindex" %>
+</div>
+</div>
+</div>
 <% end %>
 
 <%= render "devise/shared/links" %>
