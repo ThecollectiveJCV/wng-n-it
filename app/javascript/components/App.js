@@ -6,7 +6,7 @@ import RestaurantIndex from "../components/pages/RestaurantIndex";
 import ReviewIndex from "./pages/ReviewIndex";
 import ReviewNew from "./pages/ReviewNew";
 import RestaurantShow from "./pages/RestaurantShow";
-
+import ReviewShow from "./pages/ReviewShow";
 import ReviewEdit from "./pages/ReviewEdit";
 import ReviewDelete from "./pages/ReviewDelete";
 import NotFound from "./pages/NotFound";
@@ -19,6 +19,7 @@ class App extends Component {
       restaurants: [],
       reviews: [],
       restaurant_id: undefined,
+      review_id: undefined
     };
   }
   componentDidMount() {
@@ -55,10 +56,28 @@ class App extends Component {
       .catch((errors) => console.log("Review create errors:", errors));
   };
 
+  updateReview = (review, id) => {
+    
+    fetch(`/reviews/${id}`, {
+    body: JSON.stringify(review),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "PUT"
+  })
+  .then((response) => response.json()) 
+  .catch((errors) => console.log("Review read errors:", errors));
+  }
+
   handleRestaurantId = (restaurantID) => {
     this.setState({ restaurant_id: restaurantID });
   };
+
+  handleReviewId = (reviewID) => {
+    this.setState({ review_id: reviewID})
+  }
   render() {
+    
     const {
       logged_in,
       current_user,
@@ -82,7 +101,8 @@ class App extends Component {
             />
             <Route
               path="/reviewindex"
-              render={() => <ReviewIndex reviews={this.state.reviews} />}
+              render={(props) => <ReviewIndex reviews={this.state.reviews} 
+              />}
             />
             <Route
               path="/restaurantshow/:id"
@@ -99,6 +119,24 @@ class App extends Component {
                 );
               }}
             />
+            <Route 
+              path="/reviewshow/:id"
+              render={(props) => {
+                let id =+props.match.params.id;
+                let review = this.state.reviews.find(
+                  (reviewObject) => reviewObject.id === id
+                );
+               
+                return (
+                  <ReviewShow
+                  review={review}
+                  restaurant_id={this.state.restaurant_id}
+                  handleRestaurantId={this.handleRestaurantId}
+                  />
+                )
+              }}
+              />
+
             <Route
               path="/reviewnew"
               render={() => {
@@ -111,7 +149,17 @@ class App extends Component {
                 );
               }}
             />
-            <Route path="/reviewedit" component={ReviewEdit} />
+            <Route path="/reviewedit/:id" render={(props) => {
+            let id = props.match.params.id
+            let review = this.state.reviews.find(review => review.id === +id)
+           
+           
+            return <ReviewEdit 
+                current_user={current_user}
+                review = {review}
+                 updateReview={this.updateReview}               
+                />
+              }} />
             <Route path="/reviewdelete" component={ReviewDelete} />
             <Route component={NotFound} />
           </Switch>

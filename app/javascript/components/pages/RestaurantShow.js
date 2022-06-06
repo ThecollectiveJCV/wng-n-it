@@ -23,9 +23,9 @@ export default class RestaurantShow extends Component {
         </ul>
         <Button onClick={this.restaurantReview}>
           <NavLink                        
-            to={{
-              pathname:"/reviewnew"
-              }}>Add Review</NavLink>
+            to={
+              "/reviewnew"
+              }>Add Review</NavLink>
         </Button>
       </div>
     )
