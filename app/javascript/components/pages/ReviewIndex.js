@@ -9,13 +9,19 @@ import {
   CardImg,
   CardText,
   Row,
+  Button
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 class ReviewIndex extends Component {
+
+
+
   render() {
     let { reviews } = this.props;
+    
     return (
+      
       <Container>
         <CardGroup>
           <button>
@@ -39,6 +45,12 @@ class ReviewIndex extends Component {
                         {review.restaurant_name}, {review.rating}
                       </CardTitle>
                       <CardText tag="h5">{review.text_review}</CardText>
+                      <Button>
+                        <NavLink to={(`/reviewshow/${review.id}`)}>
+                          View review{" "}
+                        </NavLink>
+                      </Button>
+                   
                     </CardBody>
                   </Card>
                 );

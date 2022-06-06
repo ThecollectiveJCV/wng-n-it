@@ -1,9 +1,61 @@
 import React, { Component } from 'react'
+import { Label, Form } from "reactstrap";
+import { Redirect } from "react-router-dom";
+
+
+
+
+
 
 export default class ReviewEdit extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props)
+    this.state = {
+      newReview: {
+        text_review: "",
+        user_id: this.props.current_user.id,
+        restaurant_id: this.props.restaurant_id,
+      },
+      submitted: false
+    };
+}
+
+handleChange = (e) => {
+  const { newReview } = this.state;
+  newReview[e.target.name] = e.target.value;
+  this.setState({ newReview: newReview });
+};
+
+handleSubmit = () => {
+  this.props.updateReview(this.state.newReview, this.props.review.id);
+  
+  this.setState({ submitted: true });
+};
+
+
   render() {
+  console.log(this.props)
     return (
-      <div>ReviewEdit</div>
-    )
+      
+      <div>
+        <h1>ReviewEdit</h1>
+          <Form>
+            <Label>
+              <h3>Edit Review</h3>
+              <input
+                name="text_review"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </Label>
+            <button onClick={this.handleSubmit} type="submit">
+              Edit Review
+            </button>
+          </Form>
+          {this.state.submitted && <Redirect to="/reviewindex" />}
+    </div>
+  );
+
   }
 }

@@ -20,7 +20,7 @@ export default class Header extends Component {
           </NavItem>
           <NavItem className="navitem">
             <NavLink to="/aboutus" className="nav-link">
-              About Wng-N-It App
+              About Wng-N-It
             </NavLink>
           </NavItem>
           <NavItem className="navitem">
