@@ -138,7 +138,7 @@ class App extends Component {
                 let review = this.state.reviews.find(
                   (reviewObject) => reviewObject.id === +id
                 );
-              console.log(this.state.reviews)
+              
                 return (
                   <ReviewShow
                   review={review}

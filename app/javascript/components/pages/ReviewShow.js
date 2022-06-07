@@ -21,8 +21,7 @@ class ReviewShow extends Component {
   }
     render() {
         let {review} = this.props
-        console.log(this.props)
-        console.log(this.handleSubmit)
+     
             return (
                 <div>
                     <h1>Review Show</h1>
