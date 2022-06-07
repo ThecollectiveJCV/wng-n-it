@@ -1,6 +1,6 @@
 require 'faker'
 
-require "HTTParty"
+require "httparty"
 
 
 response = HTTParty.get("https://api.yelp.com/v3/businesses/search?&term=chicken_wings&location=san+diego",
