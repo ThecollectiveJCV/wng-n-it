@@ -15,9 +15,8 @@ export default class RestaurantShow extends Component {
         <h1>RestaurantShow</h1>
         <h4>{restaurant && restaurant.name}</h4>
         <img src={restaurant && restaurant.img} />
-        <ul>
-          <li>zip code: {restaurant && restaurant.zip}</li>
-        </ul>
+        <h3>zip code: {restaurant && restaurant.zip}</h3>
+
         {current_user && (
           <Button onClick={this.restaurantReview}>
             <NavLink to={"/reviewnew"}>Add Review</NavLink>
@@ -26,7 +25,7 @@ export default class RestaurantShow extends Component {
         {!current_user && (
           <Button>
             <NavItem className="navitem">
-              <a href="/users/sign_up">Sign Up</a>
+            <a href="/users/sign_up"> Sign Up</a>
             </NavItem>
           </Button>
         )}

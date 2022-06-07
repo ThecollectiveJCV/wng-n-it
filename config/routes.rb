@@ -6,7 +6,3 @@ Rails.application.routes.draw do
   root 'home#index'
 end
 
-
-# devise_scope :user do
-#   root :to => 'devise/sessions#new'
-#  end

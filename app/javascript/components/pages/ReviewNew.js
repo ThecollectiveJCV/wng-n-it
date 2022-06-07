@@ -30,7 +30,6 @@ export default class ReviewNew extends Component {
   };
 
   render() {
-    console.log(this.state.newReview.restaurants);
     return (
       <div>
         <h1>ReviewNew</h1>
