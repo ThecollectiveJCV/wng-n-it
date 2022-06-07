@@ -25,7 +25,7 @@ export default class Header extends Component {
             </NavLink>
           </NavItem>
           <NavItem className="navitem">
-            <NavLink to="/aboutus" className="nav-link">
+            <NavLink to="/" className="nav-link">
               About Wng-N-It
             </NavLink>
           </NavItem>

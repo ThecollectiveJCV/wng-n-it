@@ -8,3 +8,15 @@ img {
     width: 100px;
     height: 100px;
 }
+
+.footer {
+color: black;
+//   position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0px;
+//   background-color: white;
+}
+
