@@ -19,6 +19,7 @@ class App extends Component {
       reviews: [],
       restaurant_id: undefined,
       review_id: undefined,
+      img: undefined,
     };
   }
   componentDidMount() {
@@ -82,6 +83,7 @@ class App extends Component {
     this.setState({ restaurant_id: restaurantID });
   };
 
+
   render() {
     const {
       logged_in,
@@ -97,7 +99,7 @@ class App extends Component {
         <Router>
           <Header {...this.props} />
           <Switch>
-            <Route exact path="/aboutus" component={AboutUs} />
+            <Route exact path="/" component={AboutUs} />
             <Route
               path="/restaurantindex"
               render={() => (
@@ -117,6 +119,7 @@ class App extends Component {
                 );
                 return (
                   <RestaurantShow
+                    current_user={current_user}
                     restaurant={restaurant}
                     handleRestaurantId={this.handleRestaurantId}
                   />
@@ -144,12 +147,17 @@ class App extends Component {
 
             <Route
               path="/reviewnew"
-              render={() => {
+              render={(props) => {
+                let restaurant = this.state.restaurants.find(() => this.state.restaurant_id)
                 return (
                   <ReviewNew
+                    restaurant={restaurant}
+                    restaurants={this.state.restaurants}
                     current_user={current_user}
                     restaurant_id={this.state.restaurant_id}
                     createReview={this.createReview}
+                    image={this.state.img}
+                    rating={this.state.rating}
                   />
                 );
               }}
