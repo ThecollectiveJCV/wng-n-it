@@ -8,15 +8,15 @@ import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 // Imports in the component we are going to be testing.
-import RestaurantShow from "./RestaurantShow";
+import ReviewEdit from "./ReviewEdit";
 
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("When RestaurantShow renders", () => {
+describe("When ReviewEdit renders", () => {
   it("displays a heading", () => {
-    const restaurantShow = shallow(<RestaurantShow />);
-    const restaurantShowHeading = restaurantShow.find("h1").text();
-    expect(restaurantShowHeading).toEqual("RestaurantShow");
+    const reviewEdit = shallow(<ReviewEdit />);
+    const reviewEditHeading = reviewEdit.find("h1").text();
+    expect(revieEditHeading).toEqual("ReviewEdit");
   });
 });

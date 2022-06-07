@@ -69,13 +69,24 @@ class App extends Component {
   .catch((errors) => console.log("Review read errors:", errors));
   }
 
+  deleteReview = (id) => {
+ 
+    fetch(`/reviews/${id}`, {
+    
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "DELETE"
+  })
+  .then((response) => response.json()) 
+  .catch((errors) => console.log("Review read errors:", errors));
+  }
+
   handleRestaurantId = (restaurantID) => {
     this.setState({ restaurant_id: restaurantID });
   };
 
-  handleReviewId = (reviewID) => {
-    this.setState({ review_id: reviewID})
-  }
+
   render() {
     
     const {
@@ -109,7 +120,7 @@ class App extends Component {
               render={(props) => {
                 let id = +props.match.params.id;
                 let restaurant = this.state.restaurants.find(
-                  (restaurantObject) => restaurantObject.id === id
+                  (restaurantObject) => restaurantObject.id === +id
                 );
                 return (
                   <RestaurantShow
@@ -122,16 +133,20 @@ class App extends Component {
             <Route 
               path="/reviewshow/:id"
               render={(props) => {
-                let id =+props.match.params.id;
+                
+                let id = props.match.params.id;
                 let review = this.state.reviews.find(
-                  (reviewObject) => reviewObject.id === id
+                  (reviewObject) => reviewObject.id === +id
                 );
-               
+              console.log(this.state.reviews)
                 return (
                   <ReviewShow
                   review={review}
+  
                   restaurant_id={this.state.restaurant_id}
                   handleRestaurantId={this.handleRestaurantId}
+                  deleteReview={this.deleteReview}
+
                   />
                 )
               }}
@@ -149,18 +164,26 @@ class App extends Component {
                 );
               }}
             />
+            
             <Route path="/reviewedit/:id" render={(props) => {
             let id = props.match.params.id
             let review = this.state.reviews.find(review => review.id === +id)
-           
-           
+
             return <ReviewEdit 
                 current_user={current_user}
                 review = {review}
-                 updateReview={this.updateReview}               
+                updateReview={this.updateReview}               
                 />
               }} />
-            <Route path="/reviewdelete" component={ReviewDelete} />
+            <Route path="/reviewdelete/:id"render={(props) => {
+            let id = props.match.params.id
+            let review = this.state.reviews.find(review => review.id === +id)
+            return <ReviewDelete
+                current_user={current_user}
+                review = {review}
+                deleteReview={this.deleteReview}              
+                />
+              }} />
             <Route component={NotFound} />
           </Switch>
           <Footer />

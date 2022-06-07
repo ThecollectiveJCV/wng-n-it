@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        review = Reptile.find(params[:id])
+        review = Review.find(params[:id])
         reviews = Review.all
         if review.destroy
             render json: reviews
