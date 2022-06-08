@@ -13,9 +13,9 @@ export default class Header extends Component {
     } = this.props;
 
     return (
-      <div >
+      <div className="headerMain">
          <h1 className="header">Wng-N-It</h1>
-        <h2 className="header">Why Stress When You Can Wng It?</h2>
+        <h2 className="header2">Why Stress When You Can Wng It?</h2>
         <Nav className="nav">
           
             <div className="logo-home-button">

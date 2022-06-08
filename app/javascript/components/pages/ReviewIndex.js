@@ -24,12 +24,13 @@ class ReviewIndex extends Component {
       
      
           <div>
-          <Row>
+            
+          <Col>
             {reviews &&
               reviews.map((review) => {
                 return (
-                  <div class="reviewcard">
-                  <Card body key={review.id}>
+                  <div className="reviewcard" key={review.id}>
+                  <Card >
                     <CardBody>
                       <img
                         alt="Card image cap"
@@ -45,13 +46,12 @@ class ReviewIndex extends Component {
                           View review{" "}
                         </NavLink>
                       </Button>
-                   
                     </CardBody>
                   </Card>
                   </div>
                 );
               })}
-          </Row>
+          </Col>
           </div>
 
         
