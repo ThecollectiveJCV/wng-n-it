@@ -38,11 +38,14 @@ handleSubmit = () => {
   
     return (
       
-      <div>
-        <h1>ReviewEdit</h1>
+      <div className="editRev">
+        <img
+                
+                src={require("../assets/logo-favicon-headernav.png")}
+              />
           <Form>
             <Label>
-              <h3>Edit Review</h3>
+              {/* <h3>Edit Review</h3> */}
               <input
                 name="text_review"
                 type="text"

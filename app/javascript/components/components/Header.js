@@ -13,27 +13,39 @@ export default class Header extends Component {
     } = this.props;
 
     return (
-      <>
-        <h1>Why Stress When You Can Wng It?</h1>
+      <div >
+         <h1 className="header">Wng-N-It</h1>
+        <h2 className="header">Why Stress When You Can Wng It?</h2>
         <Nav className="nav">
-          <NavItem className="navitem">
-            <NavLink to="/reviewindex" className="nav-link">
+          
+            <div className="logo-home-button">
               <img
-                className="logo-home-button"
+                
                 src={require("../assets/logo-favicon-headernav.png")}
               />
-            </NavLink>
-          </NavItem>
+              </div>
+       
+
+
           <NavItem className="navitem">
             <NavLink to="/" className="nav-link">
               About Wng-N-It
             </NavLink>
           </NavItem>
+
+          <NavItem className="navitem">
+            <NavLink to="/restaurantindex" className="nav-link">
+              Restaurants
+            </NavLink>
+          </NavItem>
+
           <NavItem className="navitem">
             <NavLink to="/reviewindex" className="nav-link">
               Wng Feed
             </NavLink>
           </NavItem>
+
+
           {logged_in && (
             <NavItem className="navitem">
               <a href={sign_out_route} className="nav-link">
@@ -41,6 +53,7 @@ export default class Header extends Component {
               </a>
             </NavItem>
           )}
+
           {!logged_in && (
             <NavItem className="navitem">
               <a href={sign_in_route} className="nav-link">
@@ -48,6 +61,7 @@ export default class Header extends Component {
               </a>
             </NavItem>
           )}
+
           {!logged_in && (
             <NavItem className="navitem">
               <a href="/users/sign_up" className="nav-link">
@@ -56,7 +70,7 @@ export default class Header extends Component {
             </NavItem>
           )}
         </Nav>
-      </>
+      </div>
     );
   }
 }
