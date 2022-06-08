@@ -22,18 +22,13 @@ class ReviewIndex extends Component {
     
     return (
       
-      <Container>
-        <CardGroup>
-          <button>
-            <NavLink to="/restaurantindex">Restaurants</NavLink>
-          </button>
-          <button>
-            <NavLink to="/reviewindex">Wng Feed</NavLink>
-          </button>
-          <Row sm="8" md="6" xl="3" className="reviewContainer">
+     
+          <div>
+          <Row>
             {reviews &&
               reviews.map((review) => {
                 return (
+                  <div class="reviewcard">
                   <Card body key={review.id}>
                     <CardBody>
                       <img
@@ -45,19 +40,21 @@ class ReviewIndex extends Component {
                         {review.restaurant_name}, {review.rating}
                       </CardTitle>
                       <CardText tag="h5">{review.text_review}</CardText>
-                      <Button>
-                        <NavLink to={`/reviewshow/${review.id}`}>
+                      <Button className="btnReview">
+                        <NavLink to={`/reviewshow/${review.id}`}className="nav-link">
                           View review{" "}
                         </NavLink>
                       </Button>
                    
                     </CardBody>
                   </Card>
+                  </div>
                 );
               })}
           </Row>
-        </CardGroup>
-      </Container>
+          </div>
+
+        
     );
   }
 }

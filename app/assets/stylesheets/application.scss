@@ -1,22 +1,260 @@
-@import 'bootstrap';
-body {
-        background: linear-gradient(to top, #f5af19, #f12711); 
-}
-
+@import "bootstrap";
 
 img {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 .footer {
-color: black;
-//   position: absolute;
+  color: black;
+  background: linear-gradient(to top, #888683, #e8e5e5);
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
   margin-bottom: 0px;
-//   background-color: white;
+  padding: auto;
 }
 
+.logo-home-button {
+  width: 150px;
+  float: right;
+  margin-left: 16px;
+}
+
+body {
+  background: linear-gradient(to top, #f5af19, #f12711);
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+}
+
+.btnReview {
+  background-color: #cabfbf;
+}
+
+.restaurantshow-btn {
+  background-color: #cabfbf;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.nav-link {
+  color: black;
+}
+
+.notfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 250px;
+  padding-right: 250px;
+}
+
+.nfgif {
+  height: 400px;
+  width: 400px;
+}
+
+.nfbutton {
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  background-color: #ee5300;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.title2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.loginfields {
+  position: absolute;
+  top: 35%;
+  left: 42%;
+  border-radius: 10%;
+  padding: 25px 25px 25px 25px;
+
+  background-color: #777777;
+  max-width: 275px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.loginbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  width: 50px;
+}
+.revShow {
+  background-color: #cabfbf;
+}
+.revBtn {
+  flex-direction: column;
+  align-content: center;
+  background-color: #050302;
+  justify-content: space-between;
+}
+.signupforgot {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  top: 70%;
+  left: 42%;
+}
+.wngfeedloginbutton {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 75px;
+  padding-top: 5px;
+  justify-content: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.btnShow {
+  background-color: #cabfbf;
+}
+
+.editRev {
+  height: 200px;
+  width: 400px;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #858585;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 5px;
+}
+
+.resShow {
+  height: 500px;
+  width: 900px;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #858585;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 5px;
+}
+.bg-primary {
+  background-color: #007bff !important;
+}
+.reviewcard {
+  height: 300px;
+  width: 900px;
+  display: flex;
+
+  margin: auto;
+  flex-direction: row;
+  justify-content: center;
+
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 5px;
+}
+.reviewtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.secondary {
+  text-align: center;
+}
+.restauranttitle {
+  border-radius: 10%;
+
+  // margin-right:250px;
+  background-color: #cabfbf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.restaurantcard {
+  height: 500px;
+  width: 450px;
+  border-radius: 2.5%;
+
+  background-color: #dac8c8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.aboutusteam {
+  display: flex;
+  flex-direction: row;
+}
+.aboutusphotos {
+  border-radius: 20px;
+  width: 150px;
+  height: 150px;
+}
+
+.hero {
+  height: 400px;
+  width: 100%;
+}
+
+.heroimage {
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #161515;
+  text-shadow: black 10px;
+  background-image: url(https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aboutContainer {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.navitem {
+  position: relative;
+  float: inline-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: 16px;
+  font-size: 25px;
+}
+.herotext {
+  text-align: center;
+  // z-index: 1;
+  // position: rel;
+  background-color: rgba(128, 125, 121, 0.902);
+  max-width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+}

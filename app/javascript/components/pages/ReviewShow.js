@@ -23,26 +23,30 @@ class ReviewShow extends Component {
         let {review} = this.props
      
             return (
-                <div>
-                    <h1>Review Show</h1>
+                <div class="resShow" >
+                    <img
+                src={require("../assets/logo-favicon-headernav.png")}
+                     />
 
                     <h4>{review && review.restaurant_name}</h4>
                     <img src={review && review.img}/>
                     <h4>{review && review.text_review}</h4>
-                    <Button  >
+                    <div className="revBtn">
+                    <Button  className="revShow">
                         <NavLink                        
                             to={
                             `/reviewedit/${review.id}`                            
-                            }>Edit Review
+                            } className="nav-link">Edit Review
                         </NavLink>
                     </Button>
-                    <Button onClick={this.handleSubmit}>
+                    <Button onClick={this.handleSubmit} className="revShow">
                         <NavLink                        
                             to={
                             "/reviewindex/"                            
-                            }>Delete Review
+                            } className="nav-link">Delete Review
                         </NavLink>
                     </Button>
+                    </div>
                 </div>
             );
     }

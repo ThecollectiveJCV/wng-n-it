@@ -3,10 +3,6 @@ import { Label, Form } from "reactstrap";
 import { Redirect } from "react-router-dom";
 
 
-
-
-
-
 export default class ReviewEdit extends Component {
   constructor(props) {
     super(props);
@@ -38,11 +34,14 @@ handleSubmit = () => {
   
     return (
       
-      <div>
-        <h1>ReviewEdit</h1>
+      <div className="editRev">
+        <img
+                
+                src={require("../assets/logo-favicon-headernav.png")}
+              />
           <Form>
             <Label>
-              <h3>Edit Review</h3>
+             
               <input
                 name="text_review"
                 type="text"

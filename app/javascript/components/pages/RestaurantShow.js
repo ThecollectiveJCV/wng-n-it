@@ -11,19 +11,23 @@ export default class RestaurantShow extends Component {
     let { restaurant } = this.props;
     let { current_user } = this.props;
     return (
-      <div>
-        <h1>RestaurantShow</h1>
-        <h4>{restaurant && restaurant.name}</h4>
+      <div class="resShow">
+        <h1>Restaurant Info</h1>
+        <img
+                src={require("../assets/logo-favicon-headernav.png")}
+                     />
+        <h2>{restaurant && restaurant.name}</h2>
         <img src={restaurant && restaurant.img} />
-        <h3>zip code: {restaurant && restaurant.zip}</h3>
+        <h3>Location: {restaurant && restaurant.zip}</h3>
+        <h3>Overall rating: {restaurant && restaurant.avg_rating}</h3>
 
         {current_user && (
-          <Button onClick={this.restaurantReview}>
-            <NavLink to={"/reviewnew"}>Add Review</NavLink>
+          <Button onClick={this.restaurantReview}className="btnShow">
+            <NavLink to={"/reviewnew"} className="nav-link">Add Review</NavLink>
           </Button>
         )}
         {!current_user && (
-          <Button>
+          <Button className="btnShow">
             <NavItem className="navitem">
             <a href="/users/sign_up"> Sign Up</a>
             </NavItem>

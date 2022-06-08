@@ -95,7 +95,7 @@ class App extends Component {
 
     return (
       <>
-        <h1>Wng-N-It</h1>
+       
         <Router>
           <Header {...this.props} />
           <Switch>
