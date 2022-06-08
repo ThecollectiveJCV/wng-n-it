@@ -31,11 +31,13 @@ export default class ReviewNew extends Component {
 
   render() {
     return (
-      <div>
-        <h1>ReviewNew</h1>
+      <div className="editRev">
+         <img
+          src={require("../assets/logo-favicon-headernav.png")}
+        />
         <Form>
           <Label>
-            <h3>Restaurant Review</h3>
+            <h3>Create a new review</h3>
             <input
               name="text_review"
               type="text"

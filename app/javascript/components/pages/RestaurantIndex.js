@@ -9,7 +9,7 @@ export default class RestaurantIndex extends Component {
     return (
   
         <div>
-          <h2 style={{textAlign: 'center'}}>The Wngiest Restaurants Around</h2>
+          <h2 style={{textAlign: 'center', color: "white"}}>The Wngiest Restaurants Around</h2>
           <Row>
             {restaurants &&
               restaurants.map((restaurant) => {
